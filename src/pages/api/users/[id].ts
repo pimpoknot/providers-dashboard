@@ -1,46 +1,7 @@
-import { Address, Providers } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { DBProviders } from "../../../models/databaseModel";
-import { prisma } from "./data";
-
-
-export const deleteProvider = async (id: string): Promise<DBProviders> => {
-  const proviData = await prisma.providers.delete({
-    where: { id },
-  });
-  const address = await prisma.address.delete({
-    where: { id: proviData.addressId },
-  });
-  return {
-    ...proviData,
-    address,
-  };
-};
-
-type UpdateRequest = Omit<Providers, "addressId" | "id"> & {
-  address: Omit<Address, "id">;
-}
-
- export const updateProviders = async (
-  id: string,
-  { address, ...data }: UpdateRequest
-) => {
-  const providerUpdated = await prisma.providers.update({
-    where: { id },
-    data,
-  });
-  const addressUpdated = await prisma.address.update({
-    where: { id: providerUpdated.addressId },
-    data: address,
-  });
-  return { ...providerUpdated, address: addressUpdated };
-};
-
- export const findProvider = async (id: string) =>
-  prisma.providers.findFirst({
-    where: { id },
-    include: { address: true },
-  });
+import { deleteProvider } from "../../../database/DeleteProvider";
+import { findProvider } from "../../../database/FindProvider";
+import { updateProviders } from "../../../database/UpdateProvider";
 
 
 export default async function handler(

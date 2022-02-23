@@ -24,7 +24,6 @@ import { useEffect, useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { DBProviders } from "../../models/databaseModel";
 import AlertDialogRemove from "../../components/AlertDialog/AlertDialogRemove";
-import { findProvider } from "../api/users/[id]";
 import { ToastStatus } from "../../components/Toast";
 import { InputProps, ModalForm } from "../../components/ModalForm";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -33,6 +32,7 @@ import  Modal  from "react-modal";
 import { cnpjMask } from "../../components/Input/cnpjMask";
 import { PhoneIcon } from "@chakra-ui/icons";
 import InputMask from "react-input-mask";
+import { findProvider } from "../../database/FindProvider";
 
 interface Props extends DBProviders {}
 
@@ -234,8 +234,8 @@ const ProviderProfile: NextPage<Props> = ({ provider }) => {
               </FormControl>
               <FormControl mt={1}>
                 <FormLabel htmlFor="username"> CNPJ </FormLabel>
-                <Input value={cnpjMask(valuesCNPJ.cnpj)}id="username" type="text"  
-                p={5}defaultValue={cnpj} {...register("cnpj", { required: true })}onChange={inputChangeCnpj}/>
+                <Input id="username" type="text"  
+                p={5} defaultValue={cnpjMask(valuesCNPJ.cnpj)} {...register("cnpj", { required: true })} onChange={inputChangeCnpj}/>
               </FormControl>
               <FormControl mt={1}>
                 <FormLabel htmlFor="name">Nome Fantasia </FormLabel>

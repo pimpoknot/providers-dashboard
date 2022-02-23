@@ -1,31 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
-import { Providers, Address, Prisma } from "@prisma/client";
-
-type CreateRequest = Omit<Providers, "addressId" | "id"> & { address: Omit<Address, "id"> };
-
-
-export const prisma = new PrismaClient();
-
-export const CreateProviders = async ({ address, ...data }: CreateRequest) =>
-  prisma.providers.create({
-    data: {
-      ...data,
-      address: { create: address },
-    },
-  });
-
-
-type IListRequest = {
-  where?: Prisma.ProvidersWhereInput;
-};
-
-export const listProviders = async ({ where } = {} as IListRequest) =>
-  prisma.providers.findMany({
-    include: { address: true },
-    where,
-  });
-
+import { CreateProviders } from "../../../database/CreateProvider";
+import { listProviders } from "../../../database/GetProvider";
 
 
 export default async function handler(
