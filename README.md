@@ -65,6 +65,6 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador após inici
 ### ChrakraUI
 - Com propósito de facilitar criação de Divs, e organizar o CSS de maneira mais simples.
 ### Axios
-- Para consumir API foi escolhido o axios por puro costume com a ferramenta. Porém.
+- Para consumir API foi escolhido o axios por puro costume com a ferramenta.
 ### React-hook-form
 - Por se tratar de uma biblioteca robusta e com nivel de praticidade elevada, ela nos deixa preocupar somente com o form deixando toda parte de validação e estrutura toda pronta. Além de ser uma ótima alida por conta dos Hooks.
