@@ -61,7 +61,7 @@ export default async function handler(
       await deleteProvider(id);
       return res.status(200).json({});
     }
-    throw new Error("Method not válid");
+    throw new Error("invalid method");
   } catch (error) {
     console.error(error);
     return res.status(400).json({ message: "Ocorreu um erro" });
