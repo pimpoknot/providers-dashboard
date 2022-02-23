@@ -12,18 +12,9 @@ import { DBProviders } from "../models/databaseModel";
 import ProviderList from "./providerList";
 
 const Home: NextPage = () => {
-  const [providers, setProviders] = useState([]);
-
-  useEffect(() => {
-    axios.get("/api/users/data").then((response) => {
-      setProviders(response.data);
-    });
-  }, []);
-
-  console.log(providers);
   return (
     <>
-        <h1>nada</h1>
+        <h1>Home</h1>
     </>
   );
 };

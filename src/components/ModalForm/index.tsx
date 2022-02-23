@@ -1,6 +1,6 @@
-import { ReactText, useState } from "react";
+import { ReactText, useEffect, useState } from "react";
 import Modal from "react-modal";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, useFormState } from "react-hook-form";
 import {
   Button,
   Divider,
@@ -56,7 +56,7 @@ export const ModalForm = ({
   modalTitle,
 }: IModalForm) => {
   const [input, setInput] = useState("");
-  const { register, handleSubmit,watch,formState: { errors }} = useForm<InputProps>();
+  const { register, handleSubmit, reset, formState: { isSubmitSuccessful }} = useForm<InputProps>();
   const [activeLoader, setLoader] = useState(false);
 
   const handleInputChange = (e: any) => setInput(e.target.value);
@@ -64,7 +64,6 @@ export const ModalForm = ({
   const { push } = useRouter();
 
   const isError = input === "";
-
   const [success, setSucesss] = useState(false)
   const [formErrorToast, setFormErrorToast] = useState(false)
 
@@ -74,6 +73,7 @@ export const ModalForm = ({
       push('/')
       setTimeout(() => {
         setLoader(false);
+        reset()
       }, 3000);
       setSucesss(true)
       setSucesss(false)
@@ -105,10 +105,11 @@ export const ModalForm = ({
       style={customStyles}
       contentLabel="Example Modal"
       ariaHideApp={false}
+
     >
       <Text fontSize="xl" fontWeight={600} fontFamily="sans-serif" textAlign="center">{modalTitle}</Text>
       <CloseButton position={"absolute"} right="6px" top="10px" size='lg' onClick={onRequestClose} />
-      <form action="POST" onSubmit={handleSubmit(handleFormSubmit)}>
+      <form action="POST" onSubmit={handleSubmit(handleFormSubmit)} >
         <FormControl p={10} width={900} isRequired>
          <Flex>
           <FormControl width="50%" mr={5} mt={1}>
@@ -118,8 +119,8 @@ export const ModalForm = ({
               </FormControl>
               <FormControl mt={1}>
                 <FormLabel htmlFor="username"> CNPJ </FormLabel>
-                <Input value={cnpjMask(valuesCNPJ.cnpj)}id="username" type="text"  
-                p={5}defaultValue={defaultData?.cnpj} {...register("cnpj", { required: true })}onChange={inputChangeCnpj}/>
+                <Input id="username" type="text"  
+                p={5} defaultValue={cnpjMask(valuesCNPJ.cnpj)} {...register("cnpj", { required: true })} onChange={inputChangeCnpj}/>
               </FormControl>
               <FormControl mt={1}>
                 <FormLabel htmlFor="name">Nome Fantasia </FormLabel>
