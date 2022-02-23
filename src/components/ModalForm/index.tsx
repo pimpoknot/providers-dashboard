@@ -119,8 +119,8 @@ export const ModalForm = ({
               </FormControl>
               <FormControl mt={1}>
                 <FormLabel htmlFor="username"> CNPJ </FormLabel>
-                <Input id="username" type="text"  
-                p={5} defaultValue={cnpjMask(valuesCNPJ.cnpj)} {...register("cnpj", { required: true })} onChange={inputChangeCnpj}/>
+                <Input value={cnpjMask(valuesCNPJ.cnpj)} id="username" type="text"  
+                p={5} defaultValue={defaultData?.cnpj} {...register("cnpj", { required: true })} onChange={inputChangeCnpj}/>
               </FormControl>
               <FormControl mt={1}>
                 <FormLabel htmlFor="name">Nome Fantasia </FormLabel>
