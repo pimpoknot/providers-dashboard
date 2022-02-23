@@ -19,7 +19,6 @@
  AlertDialog : Componente responsável por aparecer um alert na tela no caso de um sucesso, erro na hora de cadastrar o Fornecedor <br><br>
  Input: Mascaras do formulário <br><br>
  ModalForm: Toda parte de criação do Fornecedor fica nesse componente<br><br>
- ProviderList: Componente com todos os Fornecedores cadastrados<br><br>
  Sidebar: Nessa pasta fica toda estrutura da SideBar<br><br>
  Toast: Nesse componente fica o toast de confirmação para deleção do Fornecedor<br><br>
 
