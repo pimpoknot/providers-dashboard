@@ -1,0 +1,38 @@
+{
+  "name": "tokstock-front-end",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.5",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@prisma/client": "^3.9.2",
+    "axios": "^0.26.0",
+    "framer-motion": "^6.2.7",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.27.1",
+    "react-icons": "^4.3.1",
+    "react-input-mask": "^3.0.0-alpha.2",
+    "react-modal": "^3.14.4",
+    "remask": "^0.1.0-alpha.5"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.19",
+    "@types/react": "17.0.39",
+    "@types/react-input-mask": "^3.0.1",
+    "@types/react-modal": "^3.13.1",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
+    "prisma": "^3.9.2",
+    "typescript": "4.5.5"
+  }
+}

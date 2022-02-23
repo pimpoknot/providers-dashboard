@@ -1,0 +1,1 @@
+export const IMAGE_PROVIDERS_URL = 'https://blog.medicalway.com.br/wp-content/uploads/2017/05/fornecedores-icone.png';
