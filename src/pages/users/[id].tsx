@@ -20,7 +20,7 @@ import {
     Badge
   } from "@chakra-ui/react";
 import { IMAGE_PROVIDERS_URL } from "../../utils/variables";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { DBProviders } from "../../models/databaseModel";
 import AlertDialogRemove from "../../components/AlertDialog/AlertDialogRemove";
@@ -34,7 +34,9 @@ import { PhoneIcon } from "@chakra-ui/icons";
 import InputMask from "react-input-mask";
 import { findProvider } from "../../database/FindProvider";
 
-interface Props extends DBProviders {}
+interface Props extends DBProviders {
+  provider: DBProviders
+}
 
 const customStyles = {
     content: {
