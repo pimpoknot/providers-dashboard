@@ -20,7 +20,7 @@ import {
     Badge
   } from "@chakra-ui/react";
 import { IMAGE_PROVIDERS_URL } from "../../utils/variables";
-import { ReactNode, useEffect, useState } from "react";
+import { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { DBProviders } from "../../models/databaseModel";
 import AlertDialogRemove from "../../components/AlertDialog/AlertDialogRemove";
@@ -315,7 +315,7 @@ const ProviderProfile: NextPage<Props> = ({ provider }) => {
 
 export default ProviderProfile;
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params,
 }) => {
   const { id } = params as { id: string };

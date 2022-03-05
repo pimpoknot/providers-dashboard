@@ -16,7 +16,7 @@ export default async function handler(
       const providers = await CreateProviders(req.body);
       return res.status(201).json(providers);
     }
-    throw new Error("Method not válid");
+    throw new Error("Method not valid");
   } catch (error) {
     console.error(error);
     return res.status(400).json({ message: "error" });

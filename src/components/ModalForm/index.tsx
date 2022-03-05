@@ -71,6 +71,7 @@ export const ModalForm = ({
     setLoader(true);
     await axios.post("/api/users/data", data).then(() => {
       push('/')
+      onRequestClose()
       setTimeout(() => {
         setLoader(false);
         reset()
